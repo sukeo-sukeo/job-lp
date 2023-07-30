@@ -11,10 +11,10 @@ const idx = ref(0)
 
 const create = () => {
   console.log(import.meta.url);
-  item.value["ボトル画像"] = new URL(item.value["ボトル画像"], serverUrl + imagesDir).href
-  item.value["商品紹介"]["サムネイル"] = new URL(item.value["商品紹介"]["サムネイル"], serverUrl + imagesDir).href
+  item.value["ボトル画像"] = new URL(item.value["ボトル画像"], import.meta.url).href
+  item.value["商品紹介"]["サムネイル"] = new URL(item.value["商品紹介"]["サムネイル"], import.meta.url).href
   item.value["商品紹介"]["紹介文"] = item.value["商品紹介"]["紹介文"].map(obj => {
-    obj["画像"] = obj["画像"] ? new URL(obj["画像"], serverUrl + imagesDir).href : "";
+    obj["画像"] = obj["画像"] ? new URL(obj["画像"], import.meta.url).href : "";
     return obj
   })
   console.log(item.value);
